@@ -17,6 +17,10 @@
 #define AES_BLOCK_SIZE 16               // AES operates on 16 bytes at a time
 
 /*********************** FUNCTION DECLARATIONS **********************/
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 ///////////////////
 // AES
 ///////////////////
@@ -123,5 +127,9 @@ int aes_ecb_test();
 int aes_cbc_test();
 int aes_ctr_test();
 int aes_ccm_test();
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
 
 #endif   // AES_H

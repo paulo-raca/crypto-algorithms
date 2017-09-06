@@ -14,6 +14,10 @@
 #include <inttypes.h>
 
 /*********************** FUNCTION DECLARATIONS **********************/
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // Input: state - the state used to generate the keystream
 //        key - Key to use to initialize the state
 //        len - length of key in bytes (valid lenth is 1 to 256)
@@ -27,5 +31,9 @@ void arcfour_generate_stream(uint8_t state[], uint8_t out[], size_t len);
 
 // Test function
 int rc4_test();
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
 
 #endif   // ARCFOUR_H

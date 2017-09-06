@@ -24,11 +24,19 @@ typedef struct {
 } MD2_CTX;
 
 /*********************** FUNCTION DECLARATIONS **********************/
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void md2_init(MD2_CTX *ctx);
 void md2_update(MD2_CTX *ctx, const uint8_t data[], size_t len);
 void md2_final(MD2_CTX *ctx, uint8_t hash[]);   // size of hash must be MD2_BLOCK_SIZE
 
 // Test function
 int md2_test();
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
 
 #endif   // MD2_H

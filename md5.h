@@ -24,11 +24,19 @@ typedef struct {
 } MD5_CTX;
 
 /*********************** FUNCTION DECLARATIONS **********************/
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void md5_init(MD5_CTX *ctx);
 void md5_update(MD5_CTX *ctx, const uint8_t data[], size_t len);
 void md5_final(MD5_CTX *ctx, uint8_t hash[]);
 
 // Test function
 int md5_test();
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
 
 #endif   // MD5_H

@@ -25,6 +25,10 @@ typedef enum {
 } DES_MODE;
 
 /*********************** FUNCTION DECLARATIONS **********************/
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void des_key_setup(const uint8_t key[], uint8_t schedule[][6], DES_MODE mode);
 void des_crypt(const uint8_t in[], uint8_t out[], const uint8_t key[][6]);
 
@@ -33,5 +37,9 @@ void three_des_crypt(const uint8_t in[], uint8_t out[], const uint8_t key[][16][
 
 // Test function
 int des_test();
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
 
 #endif   // DES_H

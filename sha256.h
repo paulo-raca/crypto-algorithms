@@ -24,11 +24,19 @@ typedef struct {
 } SHA256_CTX;
 
 /*********************** FUNCTION DECLARATIONS **********************/
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void sha256_init(SHA256_CTX *ctx);
 void sha256_update(SHA256_CTX *ctx, const uint8_t data[], size_t len);
 void sha256_final(SHA256_CTX *ctx, uint8_t hash[]);
 
 // Test function
 int sha256_test();
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
 
 #endif   // SHA256_H

@@ -22,11 +22,19 @@ typedef struct {
 } BLOWFISH_KEY;
 
 /*********************** FUNCTION DECLARATIONS **********************/
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void blowfish_key_setup(const uint8_t user_key[], BLOWFISH_KEY *keystruct, size_t len);
 void blowfish_encrypt(const uint8_t in[], uint8_t out[], const BLOWFISH_KEY *keystruct);
 void blowfish_decrypt(const uint8_t in[], uint8_t out[], const BLOWFISH_KEY *keystruct);
 
 // Test function
 int blowfish_test();
+
+#ifdef __cplusplus
+} // extern "C"
+#endif
 
 #endif   // BLOWFISH_H
