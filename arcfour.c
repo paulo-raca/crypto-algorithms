@@ -13,10 +13,10 @@
 #include "arcfour.h"
 
 /*********************** FUNCTION DEFINITIONS ***********************/
-void arcfour_key_setup(BYTE state[], const BYTE key[], int len)
+void arcfour_key_setup(uint8_t state[], const uint8_t key[], int len)
 {
 	int i, j;
-	BYTE t;
+	uint8_t t;
 
 	for (i = 0; i < 256; ++i)
 		state[i] = i;
@@ -30,11 +30,11 @@ void arcfour_key_setup(BYTE state[], const BYTE key[], int len)
 
 // This does not hold state between calls. It always generates the
 // stream starting from the first  output byte.
-void arcfour_generate_stream(BYTE state[], BYTE out[], size_t len)
+void arcfour_generate_stream(uint8_t state[], uint8_t out[], size_t len)
 {
 	int i, j;
 	size_t idx;
-	BYTE t;
+	uint8_t t;
 
 	for (idx = 0, i = 0, j = 0; idx < len; ++idx)  {
 		i = (i + 1) % 256;

@@ -11,22 +11,19 @@
 
 /*************************** HEADER FILES ***************************/
 #include <stddef.h>
+#include <inttypes.h>
 
 /****************************** MACROS ******************************/
 #define BLOWFISH_BLOCK_SIZE 8           // Blowfish operates on 8 bytes at a time
 
-/**************************** DATA TYPES ****************************/
-typedef unsigned char BYTE;             // 8-bit byte
-typedef unsigned int  WORD;             // 32-bit word, change to "long" for 16-bit machines
-
 typedef struct {
-   WORD p[18];
-   WORD s[4][256];
+   uint32_t p[18];
+   uint32_t s[4][256];
 } BLOWFISH_KEY;
 
 /*********************** FUNCTION DECLARATIONS **********************/
-void blowfish_key_setup(const BYTE user_key[], BLOWFISH_KEY *keystruct, size_t len);
-void blowfish_encrypt(const BYTE in[], BYTE out[], const BLOWFISH_KEY *keystruct);
-void blowfish_decrypt(const BYTE in[], BYTE out[], const BLOWFISH_KEY *keystruct);
+void blowfish_key_setup(const uint8_t user_key[], BLOWFISH_KEY *keystruct, size_t len);
+void blowfish_encrypt(const uint8_t in[], uint8_t out[], const BLOWFISH_KEY *keystruct);
+void blowfish_decrypt(const uint8_t in[], uint8_t out[], const BLOWFISH_KEY *keystruct);
 
 #endif   // BLOWFISH_H

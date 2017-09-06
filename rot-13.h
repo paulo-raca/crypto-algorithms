@@ -11,6 +11,7 @@
 
 /*************************** HEADER FILES ***************************/
 #include <stddef.h>
+#include <inttypes.h>
 
 /*********************** FUNCTION DECLARATIONS **********************/
 // Performs IN PLACE rotation of the input. Assumes input is NULL terminated.

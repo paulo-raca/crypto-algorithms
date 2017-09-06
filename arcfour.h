@@ -11,20 +11,18 @@
 
 /*************************** HEADER FILES ***************************/
 #include <stddef.h>
-
-/**************************** DATA TYPES ****************************/
-typedef unsigned char BYTE;             // 8-bit byte
+#include <inttypes.h>
 
 /*********************** FUNCTION DECLARATIONS **********************/
 // Input: state - the state used to generate the keystream
 //        key - Key to use to initialize the state
 //        len - length of key in bytes (valid lenth is 1 to 256)
-void arcfour_key_setup(BYTE state[], const BYTE key[], int len);
+void arcfour_key_setup(uint8_t state[], const uint8_t key[], int len);
 
 // Pseudo-Random Generator Algorithm
 // Input: state - the state used to generate the keystream
 //        out - Must be allocated to be of at least "len" length
 //        len - number of bytes to generate
-void arcfour_generate_stream(BYTE state[], BYTE out[], size_t len);
+void arcfour_generate_stream(uint8_t state[], uint8_t out[], size_t len);
 
 #endif   // ARCFOUR_H
