@@ -29,4 +29,7 @@ void sha1_init(SHA1_CTX *ctx);
 void sha1_update(SHA1_CTX *ctx, const uint8_t data[], size_t len);
 void sha1_final(SHA1_CTX *ctx, uint8_t hash[]);
 
+// Test function
+int sha1_test();
+
 #endif   // SHA1_H

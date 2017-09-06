@@ -18,4 +18,7 @@
 // Preserves each charcter's case. Ignores non alphabetic characters.
 void rot13(char str[]);
 
+// Test function
+int rot13_test();
+
 #endif   // ROT13_H

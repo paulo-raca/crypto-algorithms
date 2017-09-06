@@ -31,4 +31,7 @@ void des_crypt(const uint8_t in[], uint8_t out[], const uint8_t key[][6]);
 void three_des_key_setup(const uint8_t key[], uint8_t schedule[][16][6], DES_MODE mode);
 void three_des_crypt(const uint8_t in[], uint8_t out[], const uint8_t key[][16][6]);
 
+// Test function
+int des_test();
+
 #endif   // DES_H

@@ -26,4 +26,7 @@ void blowfish_key_setup(const uint8_t user_key[], BLOWFISH_KEY *keystruct, size_
 void blowfish_encrypt(const uint8_t in[], uint8_t out[], const BLOWFISH_KEY *keystruct);
 void blowfish_decrypt(const uint8_t in[], uint8_t out[], const BLOWFISH_KEY *keystruct);
 
+// Test function
+int blowfish_test();
+
 #endif   // BLOWFISH_H

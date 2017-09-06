@@ -22,4 +22,7 @@ size_t base64_encode(const uint8_t in[], uint8_t out[], size_t len, int newline_
 // the size of what the output would have been (without a terminating NULL).
 size_t base64_decode(const uint8_t in[], uint8_t out[], size_t len);
 
+// Test function
+int base64_test();
+
 #endif   // BASE64_H

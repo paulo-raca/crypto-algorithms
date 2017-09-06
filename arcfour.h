@@ -25,4 +25,7 @@ void arcfour_key_setup(uint8_t state[], const uint8_t key[], int len);
 //        len - number of bytes to generate
 void arcfour_generate_stream(uint8_t state[], uint8_t out[], size_t len);
 
+// Test function
+int rc4_test();
+
 #endif   // ARCFOUR_H
