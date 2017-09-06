@@ -75,9 +75,11 @@ int des_test()
 	return(pass);
 }
 
+#ifdef CRYPTO_TEST_MAIN
 int main()
 {
 	printf("DES test: %s\n", des_test() ? "SUCCEEDED" : "FAILED");
 
 	return(0);
 }
+#endif

@@ -46,9 +46,11 @@ int base64_test()
 	return(pass);
 }
 
+#ifdef CRYPTO_TEST_MAIN
 int main()
 {
 	printf("Base64 tests: %s\n", base64_test() ? "PASSED" : "FAILED");
 
 	return 0;
 }
+#endif

@@ -39,9 +39,11 @@ int rc4_test()
 	return(pass);
 }
 
+#ifdef CRYPTO_TEST_MAIN
 int main()
 {
 	printf("ARCFOUR tests: %s\n", rc4_test() ? "SUCCEEDED" : "FAILED");
 
 	return(0);
 }
+#endif

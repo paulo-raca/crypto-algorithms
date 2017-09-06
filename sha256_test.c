@@ -53,9 +53,11 @@ int sha256_test()
 	return(pass);
 }
 
+#ifdef CRYPTO_TEST_MAIN
 int main()
 {
 	printf("SHA-256 tests: %s\n", sha256_test() ? "SUCCEEDED" : "FAILED");
 
 	return(0);
 }
+#endif

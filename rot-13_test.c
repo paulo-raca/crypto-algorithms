@@ -36,9 +36,11 @@ int rot13_test()
 	return(pass);
 }
 
+#ifdef CRYPTO_TEST_MAIN
 int main()
 {
 	printf("ROT-13 tests: %s\n", rot13_test() ? "SUCCEEDED" : "FAILED");
 
 	return(0);
 }
+#endif

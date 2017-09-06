@@ -52,9 +52,11 @@ int md5_test()
 	return(pass);
 }
 
+#ifdef CRYPTO_TEST_MAIN
 int main()
 {
 	printf("MD5 tests: %s\n", md5_test() ? "SUCCEEDED" : "FAILED");
 
 	return(0);
 }
+#endif

@@ -277,9 +277,11 @@ int aes_test()
 	return(pass);
 }
 
+#ifdef CRYPTO_TEST_MAIN
 int main(int argc, char *argv[])
 {
 	printf("AES Tests: %s\n", aes_test() ? "SUCCEEDED" : "FAILED");
 
 	return(0);
 }
+#endif

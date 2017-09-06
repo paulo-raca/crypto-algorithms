@@ -60,9 +60,11 @@ int blowfish_test()
 	return(pass);
 }
 
+#ifdef CRYPTO_TEST_MAIN
 int main()
 {
 	printf("Blowfish tests: %s\n", blowfish_test() ? "SUCCEEDED" : "FAILED");
 
 	return(0);
 }
+#endif

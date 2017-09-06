@@ -50,9 +50,11 @@ int sha1_test()
 	return(pass);
 }
 
+#ifdef CRYPTO_TEST_MAIN
 int main()
 {
 	printf("SHA1 tests: %s\n", sha1_test() ? "SUCCEEDED" : "FAILED");
 
 	return(0);
 }
+#endif
