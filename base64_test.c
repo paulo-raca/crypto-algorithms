@@ -13,7 +13,7 @@
 
 /*************************** HEADER FILES ***************************/
 #include <stdio.h>
-#include <memory.h>
+#include <string.h>
 #include "base64.h"
 
 /*********************** FUNCTION DEFINITIONS ***********************/
