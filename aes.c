@@ -540,12 +540,12 @@ void ccm_format_payload_data(uint8_t buf[], int *end_of_buf, const uint8_t paylo
 // Substitutes a word using the AES S-Box.
 uint32_t SubWord(uint32_t word)
 {
-	unsigned int result;
+	uint32_t result;
 
-	result = (int)aes_sbox[(word >> 4) & 0x0000000F][word & 0x0000000F];
-	result += (int)aes_sbox[(word >> 12) & 0x0000000F][(word >> 8) & 0x0000000F] << 8;
-	result += (int)aes_sbox[(word >> 20) & 0x0000000F][(word >> 16) & 0x0000000F] << 16;
-	result += (int)aes_sbox[(word >> 28) & 0x0000000F][(word >> 24) & 0x0000000F] << 24;
+	result = (uint32_t)aes_sbox[(word >> 4) & 0x0000000F][word & 0x0000000F];
+	result += (uint32_t)aes_sbox[(word >> 12) & 0x0000000F][(word >> 8) & 0x0000000F] << 8;
+	result += (uint32_t)aes_sbox[(word >> 20) & 0x0000000F][(word >> 16) & 0x0000000F] << 16;
+	result += (uint32_t)aes_sbox[(word >> 28) & 0x0000000F][(word >> 24) & 0x0000000F] << 24;
 	return(result);
 }
 
@@ -554,7 +554,7 @@ uint32_t SubWord(uint32_t word)
 // "keysize" is the length in bits of "key", must be 128, 192, or 256.
 void aes_key_setup(const uint8_t key[], uint32_t w[], int keysize)
 {
-	int Nb=4,Nr,Nk,idx;
+	uint32_t Nb=4,Nr,Nk,idx;
 	uint32_t temp,Rcon[]={0x01000000,0x02000000,0x04000000,0x08000000,0x10000000,0x20000000,
 	                  0x40000000,0x80000000,0x1b000000,0x36000000,0x6c000000,0xd8000000,
 	                  0xab000000,0x4d000000,0x9a000000};
@@ -567,8 +567,8 @@ void aes_key_setup(const uint8_t key[], uint32_t w[], int keysize)
 	}
 
 	for (idx=0; idx < Nk; ++idx) {
-		w[idx] = ((key[4 * idx]) << 24) | ((key[4 * idx + 1]) << 16) |
-				   ((key[4 * idx + 2]) << 8) | ((key[4 * idx + 3]));
+		w[idx] = (((uint32_t)key[4 * idx]) << 24) | (((uint32_t)key[4 * idx + 1]) << 16) |
+				   (((uint32_t)key[4 * idx + 2]) << 8) | (((uint32_t)key[4 * idx + 3]));
 	}
 
 	for (idx = Nk; idx < Nb * (Nr+1); ++idx) {

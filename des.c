@@ -16,7 +16,7 @@
 
 /****************************** MACROS ******************************/
 // Obtain bit "b" from the left and shift it "c" places from the right
-#define BITNUM(a,b,c) (((a[(b)/8] >> (7 - (b%8))) & 0x01) << (c))
+#define BITNUM(a,b,c) ((((uint32_t)a[(b)/8] >> (7 - (b%8))) & 0x01) << (c))
 #define BITNUMINTR(a,b,c) ((((a) >> (31 - (b))) & 0x00000001) << (c))
 #define BITNUMINTL(a,b,c) ((((a) << (b)) & 0x80000000) >> (c))
 
@@ -164,14 +164,14 @@ uint32_t f(uint32_t state, const uint8_t key[])
 	lrgstate[5] ^= key[5];
 
 	// S-Box Permutation
-	state = (sbox1[SBOXBIT(lrgstate[0] >> 2)] << 28) |
-			  (sbox2[SBOXBIT(((lrgstate[0] & 0x03) << 4) | (lrgstate[1] >> 4))] << 24) |
-			  (sbox3[SBOXBIT(((lrgstate[1] & 0x0f) << 2) | (lrgstate[2] >> 6))] << 20) |
-			  (sbox4[SBOXBIT(lrgstate[2] & 0x3f)] << 16) |
-			  (sbox5[SBOXBIT(lrgstate[3] >> 2)] << 12) |
-			  (sbox6[SBOXBIT(((lrgstate[3] & 0x03) << 4) | (lrgstate[4] >> 4))] << 8) |
-			  (sbox7[SBOXBIT(((lrgstate[4] & 0x0f) << 2) | (lrgstate[5] >> 6))] << 4) |
-				sbox8[SBOXBIT(lrgstate[5] & 0x3f)];
+	state = ((uint32_t)sbox1[SBOXBIT(lrgstate[0] >> 2)] << 28) |
+			  ((uint32_t)sbox2[SBOXBIT(((lrgstate[0] & 0x03) << 4) | ((uint32_t)lrgstate[1] >> 4))] << 24) |
+			  ((uint32_t)sbox3[SBOXBIT(((lrgstate[1] & 0x0f) << 2) | ((uint32_t)lrgstate[2] >> 6))] << 20) |
+			  ((uint32_t)sbox4[SBOXBIT(lrgstate[2] & 0x3f)] << 16) |
+			  ((uint32_t)sbox5[SBOXBIT(lrgstate[3] >> 2)] << 12) |
+			  ((uint32_t)sbox6[SBOXBIT(((lrgstate[3] & 0x03) << 4) | ((uint32_t)lrgstate[4] >> 4))] << 8) |
+			  ((uint32_t)sbox7[SBOXBIT(((lrgstate[4] & 0x0f) << 2) | ((uint32_t)lrgstate[5] >> 6))] << 4) |
+				(uint32_t)sbox8[SBOXBIT(lrgstate[5] & 0x3f)];
 
 	// P-Box Permutation
 	state = BITNUMINTL(state,15,0) | BITNUMINTL(state,6,1) | BITNUMINTL(state,19,2) |
